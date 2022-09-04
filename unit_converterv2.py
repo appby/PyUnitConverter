@@ -15,7 +15,7 @@ def write_units(param):
 		write_output(temp_units)
 
 def take_values():
-	val1,val2,val3=float(input("Miktar: ")),int(input("Birim: ")),int(input("Donusecek Birim: "))
+	val1,val2,val3=float(input("Value: ")),int(input("From: ")),int(input("To: "))
 	return val1,val2,val3
 
 def length_conversion(value,default_val,to_val):
@@ -55,26 +55,26 @@ def temp_conversion(value,default_val,to_val):
 
 while True:
 	try:
-		print("1- Uzunluk Dönüşümü","2- Byte Dönüşümü","3- Sıcaklık Dönüşümü","4- Çıkış\n",sep=" | ")		
+		print("1- Length Converter","2- BData Storage Converter","3- Temperature Converter","4- Exit\n",sep=" | ")		
 		for i in range(1):
-			choice=int(input("Lütfen Yapmak istediğiniz işlemleri numara seçimi ile belirtin: "))
+			choice=int(input("Please select the operation perform by typing number: "))
 			if choice>4 or choice<=0:
-				print("!"*3,"Aralık dışında seçim yaptınız. Tekrar deneyin.\n")
+				print("!"*3,"Your selection out of range. Try again.\n")
 			else:
 				break
 		if choice==1:
 			write_units(choice)
 			vals=take_values()
-			print("Sonuç: {}\n".format(length_conversion(vals[0],vals[1],vals[2])))
+			print("Result: {}\n".format(length_conversion(vals[0],vals[1],vals[2])))
 		elif choice==2:
 			write_units(choice)
 			vals=take_values()
-			print("Sonuç: {:.6f}\n".format(byte_conversion(vals[0],vals[1],vals[2])))
+			print("Result: {:.6f}\n".format(byte_conversion(vals[0],vals[1],vals[2])))
 		elif choice==3:
 			write_units(choice)
 			vals=take_values()
-			print("Sonuç: {:.2f}\n".format(temp_conversion(vals[0],vals[1],vals[2])))
+			print("Result: {:.2f}\n".format(temp_conversion(vals[0],vals[1],vals[2])))
 		else:
 			break
 	except:
-		print("!"*3,"Hata oluştu\nSeçiminizi sayı değeri olarak yazın!\n")
+		print("!"*3,"An error occurred!\nPlease select the operation perform by typing number!\n")
